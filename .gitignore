@@ -1,0 +1,74 @@
+# Operating System and Editor Files
+.DS_Store
+.ipynb_checkpoints/
+*.sublime-workspace
+.vscode/
+
+# Python Specific
+__pycache__/
+*.pyc
+*.pyo
+venv/
+jerry/
+.env
+
+# Data and Models
+data/
+models/
+*.pkl
+*.h5
+*.pth
+*.pt
+*.onnx
+
+# Results and Logs
+results/
+logs/
+*.log
+*.csv
+*.json
+*.txt
+
+# Jupyter Notebook Specific
+.ipynb_checkpoints/
+*.ipynb_base
+*.ipynb_checkpoints
+
+# Environment specific files
+*.ini
+*.cfg
+*.yaml
+*.yml
+
+# Credentials and Sensitive Information
+*.key
+*.pem
+*.env
+secrets.py
+config.py
+
+# frontend stuff
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

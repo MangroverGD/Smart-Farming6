@@ -13,7 +13,7 @@ async def process_pdf(file_path: str):
     splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=20)
     chunks = splitter.split_documents(docs)
 
-    embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001", google_api_key="AIzaSyBYhe9dDGaaOZdVE2Czbjea_XR4RsmmnGg")
+    embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001", google_api_key="")
     vector_store = FAISS.from_documents(chunks, embeddings)
 
 def get_vectorstore():
