@@ -1,11 +1,12 @@
-from fastapi import FastAPI, UploadFile, File
+from fastapi import FastAPI, UploadFile, File, APIRouter
 from fastapi.responses import JSONResponse
+
 from PIL import Image
 import numpy as np
 import tensorflow as tf
 import io
 
-app = FastAPI()
+router = APIRouter()
 
 interpreter = tf.lite.Interpreter(model_path="best_model.tflite")
 interpreter.allocate_tensors()
@@ -22,7 +23,7 @@ class_names = [
     'Corn___Common_Rust', 'Potato___Early_Blight'
 ]
 
-@app.post("/predict/")
+@router.post("/disease")
 async def predict(file: UploadFile = File(...)):
     try:
         

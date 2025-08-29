@@ -1,0 +1,41 @@
+.query-container {
+    padding: 4rem;
+    padding-top: 8rem;
+    display: grid;
+    place-items: center;
+}
+
+.pdf-form {
+    display: grid;
+    place-items: center;
+    gap: 1rem;
+
+    & div {
+        width: 100%;
+        display: grid;
+        justify-items: start;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    & :last-child {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.query-button {
+    padding: 0.4rem;
+    width: max-content;
+}
+
+.query-result {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 2rem;
+
+    display: grid;
+
+    & p {
+        justify-self: center;
+    }
+}

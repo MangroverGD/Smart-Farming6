@@ -1,16 +1,20 @@
-from fastapi import FastAPI, UploadFile, File, Form
+from fastapi import FastAPI, UploadFile, File, Form, APIRouter
 from fastapi.responses import JSONResponse
 from dotenv import load_dotenv
 import os
 
 # Import from rag package
-from rag.loader import process_pdf, get_vectorstore
-from rag.retriever import get_answer
+from loader import process_pdf, get_vectorstore
+from retriever import get_answer
 
-app = FastAPI()
+router = APIRouter()
 load_dotenv()
 
-@app.post("/pdf_upload/")
+@router.get("/")
+async def shit():
+    return JSONResponse(content={"test":"shitfuck"}, status_code=200)
+
+@router.post("/pdf_upload/")
 async def pdf_upload(file: UploadFile = File(...)):
     file_path = f"data/{file.filename}"
     os.makedirs("data", exist_ok=True)
@@ -20,7 +24,7 @@ async def pdf_upload(file: UploadFile = File(...)):
     await process_pdf(file_path)
     return {"message": f"{file.filename} uploaded and processed."}
 
-@app.post("/query/")
+@router.post("/query/")
 async def question(query: str = Form(...)):
     vector_store = get_vectorstore()
     if vector_store is None:
@@ -28,3 +32,4 @@ async def question(query: str = Form(...)):
 
     result = await get_answer(query, vector_store)
     return {"answer": result}
+

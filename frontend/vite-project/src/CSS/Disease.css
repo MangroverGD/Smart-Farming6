@@ -1,0 +1,47 @@
+.heading {
+    margin-top: 2rem;
+}
+
+.disease-form {
+    padding: 1rem;
+    display: grid;
+    place-items: center;
+    gap: 1rem;
+}
+
+.image-select {
+    border: solid;
+    padding: 0.4rem;
+    border-radius: 5px;
+}
+
+.image-select:hover {
+    background-color: rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+.hide-input {
+    display: none;
+}
+
+.image {
+    height: 60vh;
+}
+
+.submit-button {
+    border: solid;
+    background-color: transparent;
+    padding: 0.4rem;
+    border-radius: 5px;
+}
+
+.submit-button:hover {
+    background-color: rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+.disease-result {
+    font-weight: 600;
+    font-size: 2rem;
+    margin-top: 1rem;
+}

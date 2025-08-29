@@ -1,9 +1,11 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, APIRouter
 from pydantic import BaseModel, Field
 from typing import Annotated
 import pandas as pd
 import pickle
 import os
+
+from fastapi.middleware.cors import CORSMiddleware
 
 
 try:
@@ -13,7 +15,7 @@ except FileNotFoundError:
     model = None
 
 
-app= FastAPI(version="1.0")
+router = APIRouter()
 
 class YeildInput(BaseModel):
     rainfall_mm: Annotated[float, Field(..., description="rainfall in mm")]
@@ -22,7 +24,7 @@ class YeildInput(BaseModel):
     sunlight_hours: Annotated[float, Field(...,description="sunlight in one hour")]
     fertilizer_kg: Annotated[float, Field(...,description="fertilizer in kg")]
 
-@app.post("/predict")
+@router.post("/predict/yield")
 def predict(data: YeildInput ):
     if model is None:
         raise HTTPException(status_code=500,detail="Model not loaded")

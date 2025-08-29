@@ -15,7 +15,7 @@ async def get_answer(query: str, vector_store):
 
     llm = ChatGoogleGenerativeAI(
         model="gemini-2.0-flash",
-        google_api_key="AIzaSyBYhe9dDGaaOZdVE2Czbjea_XR4RsmmnGg"
+        google_api_key=""
     )
 
     prompt = PromptTemplate(
