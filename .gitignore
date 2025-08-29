@@ -26,7 +26,6 @@ results/
 logs/
 *.log
 *.csv
-*.json
 *.txt
 
 # Jupyter Notebook Specific
